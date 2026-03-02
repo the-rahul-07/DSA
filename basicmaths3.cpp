@@ -221,10 +221,10 @@ void gcdEucli(int n1, int n2)
 
 int main()
 {
-    // int n;
-    // cin >> n;
+    int n;
+    cin >> n;
     // lstdigit(n);
-    // revNum(n);
+    revNum(n);
     // palindrome(n);
     // armstrong(n);
     // divisors(n);

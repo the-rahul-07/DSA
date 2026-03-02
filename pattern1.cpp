@@ -584,7 +584,7 @@ int main()
     {
         int n;
         cin >> n;
-        pattern22(n);
+        pattern21(n);
         cout << "\n";
     }
     return 0;
