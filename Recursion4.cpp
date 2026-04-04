@@ -34,6 +34,7 @@ void revnumli(int n)
     cout << n << " ";
     revnumli(n - 1);
 }
+
 // BACKTRACKING
 void fun1toN(int i, int n)
 {
@@ -119,6 +120,12 @@ bool palin(int i, std::string &s)
         return false;
     return palin(i + 1, s);
 }
+
+// *****MULTIPLE RECURSION CALL******
+// FIBONACCI NUMBERS;
+void fibo(int n)
+{
+}
 int main()
 {
     // print();
@@ -146,7 +153,11 @@ int main()
     // for (int i = 0; i < n; i++)
     //     cout << arr[i] << " ";
 
-    std::string s = "12121";
-    cout << palin(0, s);
+    // std::string s = "12121";
+    // cout << palin(0, s);
+
+    // 0 1 1 2 3 5
+
+    fibo(n);
     return 0;
 }
