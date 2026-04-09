@@ -5,6 +5,7 @@ using std ::cin;
 using std ::cout;
 using namespace std;
 
+// left rotate by one index
 void rotateLeft(vector<int> &arr)
 {
     int temp = arr[0];
@@ -50,7 +51,22 @@ void rotateLeftD2(vector<int> &arr, int d)
     }
 }
 
-// OPTIMAL SOLN - TC = O()
+// OPTIMAL SOLN - TC = O(2n) & SC = O(1)
+void rotateLeftD3(vector<int> &arr, int n, int d)
+{
+    reverse(arr.begin(), arr.begin() + d);
+    reverse(arr.begin() + d, arr.end());
+    reverse(arr.begin(), arr.end());
+}
+
+void rightRotate(vector<int> &arr, int d, int n)
+{
+    d = d % n;
+    reverse(arr.begin(), arr.begin() + n - d);
+    reverse(arr.begin() + n - d, arr.end());
+    reverse(arr.begin(), arr.end());
+}
+
 int main()
 {
     int n;
@@ -63,7 +79,9 @@ int main()
         cin >> arr[i];
     }
     // rotateLeft(arr);
-    rotateLeftD2(arr, d);
+    // rotateLeftD2(arr, d);
+    // rotateLeftD3(arr,n , d);
+    rightRotate(arr, d, n);
     for (int i = 0; i < arr.size(); i++)
     {
         cout << arr[i] << " ";
