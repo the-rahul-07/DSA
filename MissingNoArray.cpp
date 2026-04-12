@@ -23,18 +23,22 @@ int missingno01(int arr[], int n)
 // brute force approach TC = O(n2)
 int missingno02(int arr[], int n)
 {
-    int ans;
-    for (int i = 0; i < n; i++)
+    for (int i = 1; i <= n; i++)
     {
+        int flag = 0;
         for (int j = 0; j < n - 1; j++)
         {
             if (arr[j] != i)
             {
-                ans = i;
+                flag = 1;
+                break;
             }
         }
+        if (flag == 0)
+        {
+            return i;
+        }
     }
-    return ans;
 }
 
 // Better soln TC = O(2n) SC = O(n)
