@@ -86,7 +86,7 @@ int longsubarr2(int arr[], int n, long long k)
         if (sum > k)
         {
             sum = sum - arr[j];
-            if (sum = k)
+            if (sum == k)
                 len = i - j + 1;
             j++;
         }
