@@ -83,12 +83,15 @@ int longsubarr2(int arr[], int n, long long k)
     for (int i = 0; i < n; i++)
     {
         sum += arr[i];
-        if (sum > k)
+        while (sum > k)
         {
-            sum = sum - arr[j];
-            if (sum == k)
-                len = i - j + 1;
+            sum -= arr[j];
             j++;
+        }
+
+        if (sum == k)
+        {
+            len = max(len, i - j + 1);
         }
     }
     return len;
@@ -118,6 +121,7 @@ int longsubarr3(int arr[], int n, int k)
 
     return maxLen;
 }
+
 int main()
 {
     int n;
