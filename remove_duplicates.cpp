@@ -72,15 +72,16 @@ int main()
     }
     // int indx1 = duplicate1(v);  //brute foce soln
 
-    int k = duplicate2(v); // better soln
-    for (int i = 0; i < k; i++)
+    // int k = duplicate2(v); // better soln
+    // for (int i = 0; i < k; i++)
+    // {
+    //     cout << v[i] << " ";
+    // }
+
+    int indx2 = duplicate3(v); // optimal soln
+    for (int i = 0; i < indx2; i++)
     {
         cout << v[i] << " ";
     }
-
-    // int indx2 = duplicate3(v);     //optimal soln
-    // for(int i=0; i<indx2; i++){
-    //     cout<<v[i] << " ";
-    // }
     return 0;
 }
