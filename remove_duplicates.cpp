@@ -55,8 +55,8 @@ int duplicate3(vector<int> &v)
     {
         if (v[j] != v[i])
         {
-            v[i + 1] = v[j];
             i++;
+            v[i] = v[j];
         }
     }
     return i + 1;

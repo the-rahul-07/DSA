@@ -7,23 +7,19 @@ using namespace std;
 
 int fun(int arr[], int n)
 {
-    vector<int> temp;
-
-    temp.push_back(arr[0]);
-    for (int i = 0; i < n; i++)
+    int i=0;
+    int j=1;
+    while (j < n)
     {
-        if (temp.back() != arr[i])
-        {
-            temp.push_back(arr[i]);
-        }
-    }
+        if(arr[i]==arr[j]){
 
-    int indx = 0;
-    for(auto it:temp){
-        arr[indx] = it;
-        indx++;
+        }else{
+            arr[i+1]=arr[j];
+            i++;
+        }
+        j++;
     }
-    return temp.size();
+    return i + 1;
 }
 int main()
 {
