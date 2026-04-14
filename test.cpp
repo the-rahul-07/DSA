@@ -5,36 +5,61 @@ using std ::cin;
 using std ::cout;
 using namespace std;
 
-int fun(int arr[], int n)
+string fun(int arr[], int n, int k)
 {
-    int i=0;
-    int j=1;
-    while (j < n)
+    sort(arr, arr + n);
+    int i = 0;
+    int j = n - 1;
+    int sum = 0;
+    while (i < j)
     {
-        if(arr[i]==arr[j]){
-
-        }else{
-            arr[i+1]=arr[j];
+        sum = arr[i] + arr[j];
+        if (sum < k)
+        {
             i++;
         }
-        j++;
+        else if (sum > k)
+        {
+            j--;
+        }
+        else
+        {
+            return "Yes";
+        }
     }
-    return i + 1;
+    return "No";
+}
+
+vector<int> fun1(int arr[], int n, int k)
+{
+    map<int, int> mpp;
+    for (int i = 0; i < n; i++)
+    {
+        int req = k - arr[i];
+        if (mpp.find(req) != mpp.end())
+        {
+            return {mpp[req], i};
+        }
+        else
+        {
+            mpp[arr[i]] = i;
+        }
+    }
+    return {-1, -1};
 }
 int main()
 {
-    int n;
-    cin >> n;
+    int n1;
+    cin >> n1;
+    int arr1[n1];
+    for (int i = 0; i < n1; i++)
+    {
+        cin >> arr1[i];
+    }
 
-    int arr[n];
-    for (int i = 0; i < n; i++)
-    {
-        cin >> arr[i];
-    }
-    int k = fun(arr, n);
-    for (int i = 0; i < k; i++)
-    {
-        cout << arr[i] << " ";
-    }
+    int k;
+    cin >> k;
+    vector<x    int> ans = fun1(arr1, n1, k);
+    cout << ans[0] << "," << ans[1];
     return 0;
 }

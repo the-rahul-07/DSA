@@ -1,0 +1,93 @@
+1. Opposite Ends (i = 0, j = n-1)
+
+Use when you need combination of smallest + largest
+
+When to use:
+Pair sum in sorted array
+Closest sum to target
+3Sum (inner two pointers)
+Container with most water
+Min/Max pair problems
+
+
+template
+int i = 0, j = n - 1;
+
+while (i < j)
+{
+    int sum = arr[i] + arr[j];
+
+    if (sum == k) return true;
+    else if (sum < k) i++;
+    else j--;
+}
+------------------------------------------------------------------------
+2. Same Direction (i = 0, j = 0)
+Use when you are scanning forward
+
+When to use:
+Sliding window problems
+Subarray sum (variable window)
+Longest/shortest subarray
+Maximum sum window
+
+template
+int i = 0, j = 0;
+int sum = 0;
+
+while (j < n)
+{
+    sum += arr[j];
+
+    while (sum > k)
+    {
+        sum -= arr[i];
+        i++;
+    }
+
+    j++;
+}
+------------------------------------------------------------------------
+3. Two pointers on two arrays
+When comparing / merging arrays
+
+When to use:
+Merge sorted arrays
+Intersection of arrays
+Union of arrays
+
+template
+
+int i = 0, j = 0;
+
+while (i < n && j < m)
+{
+    if (a[i] < b[j]) i++;
+    else if (a[i] > b[j]) j++;
+    else
+    {
+        // match found
+        i++; j++;
+    }
+}
+------------------------------------------------------------------------
+4. Fast & Slow Pointer
+Used in linked lists / cycles
+
+When to use:
+Detect cycle
+Find middle of linked list
+Remove loop
+
+template
+slow = head;
+fast = head;
+
+while (fast && fast->next)
+{
+    slow = slow->next;
+    fast = fast->next->next;
+
+    if (slow == fast) return true;
+}
+------------------------------------------------------------------------
