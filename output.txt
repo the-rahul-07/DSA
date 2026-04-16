@@ -1,2 +1,1 @@
-Buying day - 1
-profit - 5 rupees
+3 -2 1 -5 2 -4 
