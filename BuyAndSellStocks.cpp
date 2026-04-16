@@ -4,6 +4,7 @@ using std ::cin;
 using std ::cout;
 using namespace std;
 
+// wrong for some cases
 void stocks(int arr[], int n)
 {
     int buyday;
@@ -36,6 +37,7 @@ void stocks(int arr[], int n)
     cout << "profit - " << profit << " rupees" << "\n";
 }
 
+// TC = O(n), SC = O(1)
 void stocks2(int arr[], int n)
 {
     int mini = arr[0];
