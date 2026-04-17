@@ -7,7 +7,7 @@ using namespace std;
 
 void permute(vector<int> &arr, vector<int> &ds, vector<vector<int>> &ans, int mpp[])
 {
-    // BASE CONDN WHEN ds WILL BE FULLY FILLED WITH ALL ELEMENTS IN ARR
+    // BASE CONDN WHEN ds CONTAINS ONE COMPLETE PERMUTATION
     if (ds.size() == arr.size())
     {
         // PUSHING ds TO THE ANS, PUTTING PERMUTATION TO THE ANS
@@ -16,9 +16,11 @@ void permute(vector<int> &arr, vector<int> &ds, vector<vector<int>> &ans, int mp
     }
 
     // RUNNING A LOOP
+    // Try placing every unused element in the current position
     for (int i = 0; i < arr.size(); i++)
     {
         // CHECKING IF THE ELEMENT IS TAKEN OR NOT
+        // If arr[i] is not already used in current permutation
         if (!(mpp[i]))
         {
 
@@ -33,10 +35,14 @@ void permute(vector<int> &arr, vector<int> &ds, vector<vector<int>> &ans, int mp
             //  FIRST i=0; means element 1
             //  SO 1 2 3 & 1 3 2 IS DONE FIRST IN RECURSION TREE
             //  SO NOW WE UNMARKS 1 SO THAT IT CAN BE USED IN NEXT BATCH
+
+            // Backtrack: mark arr[i] as unused so it can be used in other permutations
             mpp[i] = 0;
 
             // WHEN ONE PERMUTATION IS DONE
             // THEN WE ARE REMOVING THE ELEMENTS FROM ds TO STORE THE NEXT PREMUTATION
+
+            // Backtrack: remove the last added element and try the next possibility
             ds.pop_back();
         }
     }
@@ -52,7 +58,7 @@ int main()
         cin >> arr[i];
     }
     vector<vector<int>> ans; // STORES THE PERMUTATIONS
-    vector<int> ds;          // CONTAINER TO STORE NUMBERS ONE BY ONE THIS ds WILL FINALLY TO THE ANS VECTOR
+    vector<int> ds;          // CONTAINER TO STORE NUMBERS ONE BY ONE THIS ds WILL FINALLY GO TO THE ANS VECTOR
     int mpp[n] = {0};        // MARKS WHICH ELEMENT IS PICKED WHICH IS NOT
 
     permute(arr, ds, ans, mpp);
