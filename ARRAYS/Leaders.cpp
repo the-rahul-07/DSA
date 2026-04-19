@@ -19,6 +19,7 @@ void leaders1(vector<int> &arr)
             if (arr[i] < arr[j])
             {
                 lead = false;
+                break;
             }
         }
         if (lead == true)
@@ -82,7 +83,7 @@ void leaders3(vector<int> &arr)
 }
 
 // same as above just changed in putting the maxi
-void leaders3(vector<int> &arr)
+void leaders4(vector<int> &arr)
 {
     vector<int> lead;
     int n = arr.size();
