@@ -47,6 +47,9 @@ void rotateMatrix2(vector<vector<int>> &arr)
                 swap(arr[i][j], arr[j][i]);
             }
         }
+    }
+    for (int i = 0; i < arr.size(); i++)
+    {
         reverse(arr[i].begin(), arr[i].end());
     }
 }
