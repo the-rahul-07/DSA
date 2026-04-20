@@ -28,12 +28,13 @@ void rotateMatrix(vector<vector<int>> &arr)
     }
 }
 
-// OPTIMAL SOLN TC = O(n2), SC = O(1)
+// OPTIMAL SOLN, SC = O(1)
 // here 1st we took transpose of matrix and then we made each row reverse
 //  if u observe every column is becoming row form this we got idea of transpose
 //  and the transpose matrix every row is getting reversed to rotate matrix by 90
 void rotateMatrix2(vector<vector<int>> &arr)
 {
+    //(n/2*n/2)
     for (int i = 0; i < arr.size(); i++)
     {
         for (int j = i; j < arr[i].size(); j++)
@@ -48,6 +49,7 @@ void rotateMatrix2(vector<vector<int>> &arr)
             }
         }
     }
+    //(n * n/2)
     for (int i = 0; i < arr.size(); i++)
     {
         reverse(arr[i].begin(), arr[i].end());
