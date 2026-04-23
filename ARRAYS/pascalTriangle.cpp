@@ -48,6 +48,7 @@ void pascaltriangle2(int n, int r)
 }
 
 // Ques -> print any nth row in pascals triangle
+// TC = O(N), SC = O(1)
 void pascaltriangle3(int n)
 {
     int ans = 1;
@@ -59,6 +60,9 @@ void pascaltriangle3(int n)
         cout << ans << " ";
     }
 }
+
+// TC = O(N2)
+// Printing pascals triangle give row number N
 vector<int> generateRow(int n)
 {
     long long ans = 1;
@@ -75,7 +79,7 @@ vector<int> generateRow(int n)
 void pascaltriangle4(int n)
 {
     vector<vector<int>> triangle;
-    for (int i = 1; i < n; i++)
+    for (int i = 1; i <= n; i++)
     {
         triangle.push_back(generateRow(i));
     }
@@ -83,11 +87,12 @@ void pascaltriangle4(int n)
     {
         for (int j = 0; j < triangle[i].size(); j++)
         {
-            cout<<triangle[i][j]<< " ";
+            cout << triangle[i][j] << " ";
         }
-        cout<<endl;
+        cout << endl;
     }
 }
+
 int main()
 {
     int n;
