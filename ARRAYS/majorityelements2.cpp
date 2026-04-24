@@ -5,13 +5,13 @@ using std ::cin;
 using std ::cout;
 using namespace std;
 
-// BRUTE FORCE SOLN TC = O()
+// BRUTE FORCE SOLN TC = O(n2), SC = (1)
 void majorityelement1(vector<int> &arr)
 {
     int n = arr.size();
     list<int> ls;
     int maxi = (int)(n / 3) + 1;
-    int cnt=0;
+    int cnt = 0;
     for (int i = 0; i < arr.size(); i++)
     {
 
@@ -21,18 +21,22 @@ void majorityelement1(vector<int> &arr)
         }
         for (int j = 0; j < arr.size(); j++)
         {
-            if(arr[i]==arr[j]){
+            if (arr[i] == arr[j])
+            {
                 cnt++;
             }
-            if(cnt==maxi){
+            if (cnt == maxi)
+            {
                 ls.push_back(arr[j]);
             }
-        } 
-        if(ls.size()==2) break;
+        }
+        if (ls.size() == 2)
+            break;
     }
-    
-    for(auto it:ls){
-        cout<< it<< " ";
+
+    for (auto it : ls)
+    {
+        cout << it << " ";
     }
 }
 
