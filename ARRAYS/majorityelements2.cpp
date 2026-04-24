@@ -5,22 +5,59 @@ using std ::cin;
 using std ::cout;
 using namespace std;
 
+// BRUTE FORCE SOLN TC = O()
+void majorityelement1(vector<int> &arr)
+{
+    int n = arr.size();
+    list<int> ls;
+    int maxi = (int)(n / 3) + 1;
+    int cnt=0;
+    for (int i = 0; i < arr.size(); i++)
+    {
+
+        if (ls.empty() || arr[0] != arr[i])
+        {
+            cnt = 0;
+        }
+        for (int j = 0; j < arr.size(); j++)
+        {
+            if(arr[i]==arr[j]){
+                cnt++;
+            }
+            if(cnt==maxi){
+                ls.push_back(arr[j]);
+            }
+        } 
+        if(ls.size()==2) break;
+    }
+    
+    for(auto it:ls){
+        cout<< it<< " ";
+    }
+}
+
 // BETTER SOLN USING HASING TC = O(N), SC = O(N);
 void majorityelements1(vector<int> &arr)
 {
+    int n = arr.size();
+    int mini = (int)(n / 3) + 1;
     unordered_map<int, int> cnt;
-    for (int i = 0; i < arr.size(); i++)
+    for (int i = 0; i < n; i++)
     {
         cnt[arr[i]]++;
-    }
-
-    for (auto it : cnt)
-    {
-        if (it.second > arr.size() / 3)
+        if (cnt[arr[i]] == mini)
         {
-            cout << it.first << " ";
+            cout << arr[i] << " ";
         }
     }
+
+    // for (auto it : cnt)
+    // {
+    //     if (it.second > arr.size() / 3)
+    //     {
+    //         cout << it.first << " ";
+    //     }
+    // }
 }
 
 // OPTIMAL SOLN TC=O(N2), SC = O(1);
@@ -85,7 +122,7 @@ int main()
     {
         cin >> arr[i];
     }
-    // majorityelements1(arr);
-    majorityelements2(arr);
+    majorityelements1(arr);
+    // majorityelements2(arr);
     return 0;
 }
