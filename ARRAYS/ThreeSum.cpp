@@ -58,6 +58,9 @@ vector<vector<int>> sum2(vector<int> &arr)
     return triplets;
 }
 
+// OPTIMAL APPROACH
+//  TC = O(NLOGN + N2);
+//  SC = O(1)
 vector<vector<int>> sum3(vector<int> &arr)
 {
     sort(arr.begin(), arr.end());
@@ -67,7 +70,6 @@ vector<vector<int>> sum3(vector<int> &arr)
     {
         if (i > 0 && arr[i] == arr[i - 1])
         {
-            i++;
             continue;
         }
         int j = i + 1;
@@ -111,9 +113,9 @@ int main()
         cin >> arr[i];
     }
 
-    // vector<vector<int>> indx = sum1(arr);
-    vector<vector<int>> indx = sum2(arr);
-    // vector<vector<int>> indx = sum3(arr);
+    // vector<vector<int>> indx = sum1(arr);       //BRUTE FORCE SOLN
+    // vector<vector<int>> indx = sum2(arr);       //BETTER APPROACH USING HASHMAP
+    vector<vector<int>> indx = sum3(arr); // OPTIMAL APPROACH USING 2 POINTERS
 
     for (int i = 0; i < indx.size(); i++)
     {
@@ -123,6 +125,5 @@ int main()
         }
         cout << endl;
     }
-
     return 0;
 }
