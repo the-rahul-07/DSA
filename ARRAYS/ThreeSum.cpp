@@ -6,19 +6,22 @@ using std ::cout;
 using namespace std;
 
 // BRUTE FORCE SOLN
+// TC = O(N3 + LOG(NO OF UNIQUE TRIPLETS))
+// SC = O(2*NO OF TRIPLETS)
 vector<vector<int>> sum1(vector<int> &arr)
 {
     set<vector<int>> st;
     for (int i = 0; i < arr.size(); i++)
     {
-        for (int j = i+1; j < arr.size(); j++)
+        for (int j = i + 1; j < arr.size(); j++)
         {
-            for (int k = j+1; k < arr.size(); k++)
+            for (int k = j + 1; k < arr.size(); k++)
             {
                 if (arr[i] + arr[j] + arr[k] == 0)
                 {
                     vector<int> temp = {arr[i], arr[j], arr[k]};
                     sort(temp.begin(), temp.end());
+                    // SET STORES ONLY THE UNIQUE ELEMENTS
                     st.insert(temp);
                 }
             }
@@ -27,28 +30,32 @@ vector<vector<int>> sum1(vector<int> &arr)
     vector<vector<int>> triplets(st.begin(), st.end());
     return triplets;
 }
-// BETTER SOLN
-vector<int> sum2(vector<int> &arr)
-{
-    map<int, int> mpp;
-    vector<int> indx;
-    int n = arr.size();
-    int x = arr[0];
-    int j = n - 1;
-    int target = -x;
-    indx.push_back(x);
 
+// BETTER SOLN
+// TC = O(N2 + logM) -> near to n2 if we are using unordered set
+// SC = O(N+ 2*NO OF UNIQUE TRIPLETS)
+vector<vector<int>> sum2(vector<int> &arr)
+{
+    int n = arr.size();
+    set<vector<int>> st;
     for (int i = 0; i < n; i++)
     {
-        int req = target - arr[i];
-        if (mpp.find(req) != mpp.end())
+        // declaring map in loop so that it get erased as i increment;
+        set<int> hashset;
+        for (int j = i + 1; j < n; j++)
         {
-            indx.push_back(i);
-            indx.push_back(mpp[req]);
+            int sum = -(arr[i] + arr[j]);
+            if (hashset.find(sum) != hashset.end())
+            {
+                vector<int> temp = {sum, arr[i], arr[j]};
+                sort(temp.begin(), temp.end());
+                st.insert(temp);
+            }
+            hashset.insert(arr[j]);
         }
-        mpp[arr[i]] = i;
     }
-    return indx;
+    vector<vector<int>> triplets(st.begin(), st.end());
+    return triplets;
 }
 
 vector<vector<int>> sum3(vector<int> &arr)
@@ -104,7 +111,9 @@ int main()
         cin >> arr[i];
     }
 
-    vector<vector<int>> indx = sum1(arr);
+    // vector<vector<int>> indx = sum1(arr);
+    vector<vector<int>> indx = sum2(arr);
+    // vector<vector<int>> indx = sum3(arr);
 
     for (int i = 0; i < indx.size(); i++)
     {
