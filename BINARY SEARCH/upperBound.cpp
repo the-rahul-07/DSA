@@ -4,6 +4,7 @@ using std ::cin;
 using std ::cout;
 using namespace std;
 
+// TC = O(LOG2N)
 int upperbound(vector<int> &arr, int x)
 {
     int n = arr.size();
