@@ -1,0 +1,70 @@
+#include <iostream>
+#include <bits/stdc++.h>
+using std ::cin;
+using std ::cout;
+using namespace std;
+
+// TC = O(log(base(2)N))
+int lowerbound(vector<int> &arr, int x)
+{
+    int n = arr.size();
+    int low = 0;
+    int high = n - 1;
+    int ans = n;
+
+    while (low <= high)
+    {
+        int mid = low + (high - low) / 2;
+        if (arr[mid] >= x)
+        {
+            ans = mid;
+            high = mid - 1;
+        }
+        else
+        {
+            low = mid + 1;
+        }
+    }
+    return ans;
+}
+
+// CODE I WROTE IN 1ST APPROACH
+//  while (low <= high)
+//  {
+//      int mid = (low + high) / 2;
+
+//     if (arr[mid] >= x)
+//     {
+//         if(mid == 0){
+//             return mid;
+//         }else if(arr[mid - 1] >= x){
+//             high = mid -1;
+//         }else{
+//             return mid;
+//         }
+//     }
+//     else if (arr[mid] < x)
+//     {
+//         low = mid + 1;
+//     }
+// }
+
+int main()
+{
+    int n;
+    cin >> n;
+
+    vector<int> arr(n);
+
+    for (int i = 0; i < n; i++)
+    {
+        cin >> arr[i];
+    }
+    sort(arr.begin(), arr.end());
+
+    int x;
+    cin >> x;
+
+    cout << lowerbound(arr, x);
+    return 0;
+}
