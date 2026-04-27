@@ -129,6 +129,7 @@ int findceil(vector<int> &arr, int x)
     }
     return ans;
 }
+
 int main()
 {
     int n;
