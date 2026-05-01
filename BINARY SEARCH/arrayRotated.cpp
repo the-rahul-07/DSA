@@ -4,7 +4,8 @@ using std ::cin;
 using std ::cout;
 using namespace std;
 
-int rotated(vector<int> &arr)
+// how many times array has been rotated;
+int findKrotation(vector<int> &arr)
 {
     int n = arr.size();
     int low = 0;
@@ -56,6 +57,6 @@ int main()
         cin >> arr[i];
     }
 
-    cout << rotated(arr);
+    cout << findKrotation(arr);
     return 0;
 }
