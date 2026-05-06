@@ -75,5 +75,6 @@ int main()
         cin >> bloomDay[i];
     }
 
+    cout << minDays(bloomDay, m, k);
     return 0;
 }
