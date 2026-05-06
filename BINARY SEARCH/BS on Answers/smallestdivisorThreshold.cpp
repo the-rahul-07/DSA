@@ -39,6 +39,18 @@ int smallestDivisor(vector<int> &nums, int threshold)
 
 int main()
 {
+    int n;
+    cin >> n;
 
+    vector<int> nums(n);
+    for (int i = 0; i < n; i++)
+    {
+        cin >> nums[i];
+    }
+
+    int threshold;
+    cin >> threshold;
+
+    cout << smallestDivisor(nums, threshold);
     return 0;
 }
