@@ -50,6 +50,50 @@ int shipWithinDays(vector<int> &weights, int days)
     return low;
 }
 
+int func(vector<int> &weight, int capacity)
+{
+    int n = weight.size();
+    int days = 1;
+    int load = 0;
+    for (int i = 0; i < n; i++)
+    {
+        if (weight[i] + load > capacity)
+        {
+            days++;
+            load = weight[i];
+        }
+        else
+        {
+            load += weight[i];
+        }
+    }
+    return days;
+}
+
+int shipWithInDays2(vector<int> &weight, int capacity)
+{
+    int n = weight.size();
+    int low = *max_element(weight.begin(), weight.end());
+    long long high = 0;
+    for (int i = 0; i < n; i++)
+    {
+        high += weight[i];
+    }
+    while (low <= high)
+    {
+        long long mid = (low + high) / 2;
+
+        if (func(weight, mid) <= capacity)
+        {
+            low = mid + 1;
+        }
+        else
+        {
+            high = mid - 1;
+        }
+    }
+    return low;
+}
 int main()
 {
     int n;
