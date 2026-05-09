@@ -9,11 +9,7 @@ int smallestDivisor(vector<int> &nums, int threshold)
 {
     int n = nums.size();
     int low = 1;
-    long long high = 0;
-    for (int i = 0; i < n; i++)
-    {
-        high += nums[i];
-    }
+    long long high = *max_element(nums.begin(), nums.end());
 
     while (low <= high)
     {
