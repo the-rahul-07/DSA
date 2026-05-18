@@ -85,7 +85,7 @@ int main()
     int ncow;
     cin >> ncow;
 
-    cout << aggressiveCows1(stalls, ncow);
-    // cout << aggressiveCows2(stalls, ncow);
+    // cout << aggressiveCows1(stalls, ncow);
+    cout << aggressiveCows2(stalls, ncow);
     return 0;
 }
