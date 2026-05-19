@@ -5,7 +5,7 @@ using std ::cin;
 using std ::cout;
 using namespace std;
 
-int allocate(vector<int> &books, int pages)
+int cntstudents(vector<int> &books, int pages)
 {
 
     int n = books.size();
@@ -36,16 +36,16 @@ int bookAllocation1(vector<int> &books, int m)
         return -1;
     long long low = *max_element(books.begin(), books.end());
     long long high = 0;
-    for (int i = 0; i < n; i++)
-    {
-        high += books[i];
-    }
-
+    // for (int i = 0; i < n; i++)
+    // {
+    //     high += books[i];
+    // }
+    high = accumulate(books.begin(), books.end(), 0);
     for (int pages = 0; pages < high; pages++)
     {
-        int cntStudents = allocate(books, pages);
+        int students = cntstudents(books, pages);
 
-        if (cntStudents == m)
+        if (students == m)
         {
             return pages;
         }
@@ -61,18 +61,19 @@ int bookAllocation2(vector<int> &books, int m)
         return -1;
     long long low = *max_element(books.begin(), books.end());
     long long high = 0;
-    for (int i = 0; i < n; i++)
-    {
-        high += books[i];
-    }
-
+    // for (int i = 0; i < n; i++)
+    // {
+    //     high += books[i];
+    // }
+    high = accumulate(books.begin(), books.end(), 0);
+    // accumulate use to sum
     while (low <= high)
     {
         long long mid = (low + high) / 2;
 
-        int cntstudents = allocate(books, mid);
+        int students = cntstudents(books, mid);
 
-        if (cntstudents > m)
+        if (students > m)
         {
             low = mid + 1;
         }
@@ -98,7 +99,7 @@ int main()
     int m;
     cin >> m;
 
-    // cout << bookAllocation1(books, m);
-    cout << bookAllocation2(books, m);
+    // cout << bookAllocation1(books, m);       //brute linear search
+    cout << bookAllocation2(books, m); // optimal BS
     return 0;
 }
