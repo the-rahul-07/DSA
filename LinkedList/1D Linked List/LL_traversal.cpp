@@ -29,9 +29,22 @@ Node* convertArr2LL(vector<int>&arr){
 
     for(int i=1; i<arr.size(); i++){
         Node* temp = new Node(arr[i]);
-        mover->next = temp;
-        // or
-        mover = temp;
+        //connect current node to next node
+        //1->null //before
+        //1->2->null //after 
+        mover->next = temp;   
+
+        //move the node to the next node
+        // Before
+        // mover
+        // ↓
+        // 1 -> 2 -> NULL
+
+        //After
+        //    mover
+        //      ↓
+        // 1 -> 2 -> NULL
+        mover = temp;           
     }
     return head;
 }
