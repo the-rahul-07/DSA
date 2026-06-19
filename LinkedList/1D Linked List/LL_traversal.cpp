@@ -36,7 +36,7 @@ Node* convertArr2LL(vector<int>&arr){
     return head;
 }
 
-//Length of linkedlist;
+//Length of linkedlist; --> TC = O(N)
 int lengthOfLL(Node* head){
     int cnt = 0;
     Node* temp = head;
@@ -47,7 +47,7 @@ int lengthOfLL(Node* head){
     return cnt;
 }
 
-//search in LL
+//search in LL --> TC = O(N), O(1);
 int checkIfPresent(Node* head, int val){
     Node* temp = head;
     while(temp){
