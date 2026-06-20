@@ -161,5 +161,7 @@ int main() {
     cout<<"Delete by val"<<endl;
     head = deleteByVal(head, 3);
     print(head);
+
+    cout<<"hello";
     return 0;
 }
