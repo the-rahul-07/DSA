@@ -1,13 +1,1 @@
-1 2 3 4 5 6 
-
-inserting head
-9 1 2 3 4 5 6 
-
-inserting tail
-9 1 2 3 4 5 6 10 
-
-insert ele at kth
-9 1 2 100 3 4 5 6 10 
-
-insert ele by value
-9 1 2 100 200 3 4 5 6 10 
+2 5 6 8 9 
