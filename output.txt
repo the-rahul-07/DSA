@@ -1,11 +1,9 @@
-3 6 8 9 1 4 
-deleting head
-6 8 9 1 4 
-deleting tail
-6 8 9 1 
-deleting Kth Node
-6 9 1 
-delete node
-6 9 
-delete node (striver)
-6 
+3 6 8 9 1 
+insert before head
+100 3 6 8 9 1 
+insert before tail
+100 3 6 8 9 200 1 
+insert before Kth Element
+100 3 400 6 8 9 200 1 
+insert before node
+100 200 3 400 6 8 9 200 1 
