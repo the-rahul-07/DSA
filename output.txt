@@ -1,1 +1,11 @@
-2 5 6 8 9 
+3 6 8 9 1 4 
+deleting head
+6 8 9 1 4 
+deleting tail
+6 8 9 1 
+deleting Kth Node
+6 9 1 
+delete node
+6 9 
+delete node (striver)
+6 
