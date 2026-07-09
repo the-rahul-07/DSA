@@ -13,6 +13,7 @@ void print()
     cnt++;
     print();
 }
+
 void name(int i, int n)
 {
     if (i > n)
@@ -20,6 +21,7 @@ void name(int i, int n)
     cout << "Neha\n";
     name(i + 1, n);
 }
+
 void numli(int i, int n)
 {
     if (i > n)
@@ -27,6 +29,7 @@ void numli(int i, int n)
     cout << i << " ";
     numli(i + 1, n);
 }
+
 void revnumli(int n)
 {
     if (n < 1)
@@ -43,6 +46,7 @@ void fun1toN(int i, int n)
     fun1toN(i - 1, n);
     cout << i << " ";
 }
+
 void funNto1(int i, int n)
 {
     if (i > n)
