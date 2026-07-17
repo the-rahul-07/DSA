@@ -35,7 +35,6 @@ int main() {
     {
         for (int k = 0; k < ans[j].size(); k++)
         {
-            if(ans[j][k].empty) cout<<"{}"<<" ";
             cout<<ans[j][k]<<" ";
         }
         cout<<endl;
