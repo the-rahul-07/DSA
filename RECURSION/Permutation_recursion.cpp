@@ -45,7 +45,7 @@ void permute(vector<int> &arr, vector<int> &ds, vector<vector<int>> &ans, int mp
             // Backtrack: remove the last added element and try the next possibility
             ds.pop_back();
         }
-    }
+    } 
 }
 
 int main()
